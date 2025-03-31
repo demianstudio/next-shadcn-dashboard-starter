@@ -1,0 +1,46 @@
+# Cursor Rules for Next.js + Shadcn UI Project
+
+# File Organization
+components/*.tsx -> Place reusable UI components
+app/* -> Next.js app router pages and layouts
+lib/* -> Utility functions and shared logic
+styles/* -> Global styles and CSS modules
+types/* -> TypeScript type definitions
+
+# Naming Conventions
+*.tsx -> PascalCase for React components
+*.ts -> camelCase for utility functions
+*.css -> kebab-case for CSS files
+
+# Component Structure
+components/
+  ├── ui/ -> Shadcn UI components
+  ├── layout/ -> Layout components
+  └── shared/ -> Shared components
+
+# Import Order
+1. React and Next.js imports
+2. External library imports
+3. Internal component imports
+4. Utility function imports
+5. Type imports
+
+# Code Style
+- Use TypeScript strict mode
+- Prefer functional components with hooks
+- Use Shadcn UI components when available
+- Keep components focused and single-responsibility
+- Use proper TypeScript types for props and state
+
+# Performance
+- Use React.memo for expensive components
+- Implement proper loading states
+- Use Next.js Image component for images
+- Implement proper error boundaries
+
+# Accessibility
+- Use semantic HTML elements
+- Include proper ARIA attributes
+- Ensure keyboard navigation works
+- Maintain proper heading hierarchy 
+
