@@ -12,6 +12,9 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import { signOut, useSession } from 'next-auth/react';
+import { ModeToggle } from './ThemeToggle/theme-toggle';
+import { ThemeSelector } from '../theme-selector';
+
 export function UserNav() {
   const { data: session } = useSession();
   if (session) {
@@ -59,6 +62,18 @@ export function UserNav() {
               <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>New Team</DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              <div className='flex w-full items-center'>
+                <span className='mr-2'>Theme Mode</span>
+                <ModeToggle />
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuItem className='p-2'>
+              <ThemeSelector />
+            </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => signOut()}>

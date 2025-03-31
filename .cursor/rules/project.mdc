@@ -1,0 +1,342 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+This application is called "Contented" 
+This is the Product Requirements Document (PRD)
+
+1. Executive Summary
+Contentented is an automated content creation workflow platform that leverages AI to generate high-quality website content based on user specifications. The system streamlines the entire content production process from initial request to final publication in a headless CMS (Notion), with human review and approval at critical stages. This tool is designed for marketing teams, content managers, and web developers who need to efficiently produce and manage web content while maintaining quality control.
+
+2. Problem Statement
+Content creation for websites is time-consuming, resource-intensive, and often bottlenecked by:
+
+Limited bandwidth of content creation teams
+Inconsistent quality and messaging
+Difficulties in maintaining SEO optimization
+Inefficient workflows between content creation and CMS publication
+Challenges in managing content across multiple platforms and formats
+
+ContentFlow.ai addresses these challenges by automating the content generation process while keeping humans in the loop for quality control and final decision-making.
+3. Target Users
+Primary Users
+
+Content Managers: Professionals responsible for website content strategy and execution
+Marketing Teams: Team members who need regular content updates for campaigns
+Web Developers: Developers using headless CMS approaches who need to populate content
+
+User Personas
+Alex - Content Manager
+
+Manages content for a medium-sized e-commerce site
+Needs to create product descriptions, category pages, and blog posts
+Currently struggles with maintaining consistent voice and SEO optimization
+Wants to reduce time spent on routine content while maintaining quality
+
+Maya - Marketing Specialist
+
+Works in a marketing agency handling multiple client websites
+Requires content that adheres to different brand guidelines and SEO strategies
+Needs efficient review processes and seamless handoffs to web teams
+Values customization and control over final output
+
+Sam - Web Developer
+
+Uses Framer with Notion as a headless CMS
+Needs a reliable way to populate content into structured databases
+Wants to automate content creation without sacrificing quality
+Values proper formatting and structured data
+
+4. Product Goals and Objectives
+Primary Goals
+
+Reduce content creation time by 70%
+Maintain consistent quality and brand voice across all generated content
+Ensure SEO optimization for all content
+Provide seamless integration with Notion databases for use in headless CMS setups
+Keep humans in the loop for quality control and final approval
+
+Success Metrics
+
+Time saved in content creation workflow
+Content quality ratings (human evaluation)
+SEO performance of published content
+User satisfaction with workflow efficiency
+Reduction in content-related revision cycles
+
+5. Product Features and Requirements
+5.1 Content Request Interface
+Description: A form-based interface for initiating content creation requests.
+Requirements:
+
+User shall be able to specify content type (blog post, product description, landing page, etc.)
+User shall provide topic/subject of the content
+User shall input SEO context (keywords, competition level, etc.)
+User shall define content guidelines (tone, style, length, etc.)
+User shall specify target audience
+User shall be able to upload reference documents if needed
+System shall validate all required fields before submission
+System shall provide templates for common content types
+
+Acceptance Criteria:
+
+All required fields must be validated before submission
+Form should be responsive and accessible on desktop and mobile devices
+Submitted requests should appear in the dashboard immediately
+
+5.2 AI Content Generation
+Description: The system will use Claude AI to generate content based on the specifications provided.
+Requirements:
+
+System shall pass all specified parameters to the AI model
+System shall optimize prompts for highest quality output
+System shall handle API rate limiting and errors gracefully
+System shall monitor token usage and costs
+System shall provide status updates during generation process
+System shall retry on temporary failures
+User shall be able to view generation progress
+
+Acceptance Criteria:
+
+AI-generated content must adhere to specified guidelines
+Generation process should complete within 2 minutes for standard content
+System should handle at least 100 content generation requests per day
+Content must include proper headings, paragraphs, and formatting as specified
+
+5.3 Review and Editing Interface
+Description: A Google Docs integration that allows users to review and edit AI-generated content.
+Requirements:
+
+System shall create a Google Doc with the AI-generated content
+System shall format the document with clear sections and review instructions
+System shall notify users when content is ready for review
+User shall be able to access the Google Doc directly from the application
+User shall make edits directly in Google Docs
+System shall provide approval mechanism to continue the workflow
+System shall track time spent in review stage
+
+Acceptance Criteria:
+
+Google Docs integration must maintain formatting from AI generation
+Notification system must alert users within 1 minute of content being ready
+Approval mechanism must be clearly visible and easy to use
+System must support concurrent review workflows for multiple content pieces
+
+5.4 Content Formatting and Structuring
+Description: Post-approval processing to format content for Notion database.
+Requirements:
+
+System shall extract edited content from Google Docs
+System shall parse content into structured format (title, headings, body, etc.)
+System shall identify and extract metadata (SEO keywords, content type, etc.)
+System shall ensure formatting is preserved for Notion import
+System shall organize content according to database schema
+System shall validate structured content before Notion submission
+
+Acceptance Criteria:
+
+Structured content must match Notion database schema
+All formatting and structure must be preserved
+Metadata extraction must be accurate
+Process must complete within 30 seconds after approval
+
+5.5 Notion Database Integration
+Description: Seamless publishing of approved content to Notion databases.
+Requirements:
+
+System shall connect to user's Notion workspace via API
+System shall map content structure to appropriate Notion database fields
+System shall support custom database schemas
+System shall handle image and rich media content
+System shall create new database entries for each content item
+System shall provide confirmation of successful publishing
+System shall include timestamps and publishing metadata
+User shall be able to view Notion entry directly from the application
+
+Acceptance Criteria:
+
+Content must appear in Notion database within 1 minute of submission
+All content structure, formatting, and metadata must be preserved
+System must handle at least 1000 Notion database updates per day
+Integration should support multiple Notion workspaces and databases
+
+5.6 Workflow Dashboard
+Description: Central interface for monitoring and managing content workflows.
+Requirements:
+
+Dashboard shall display all active content projects with status
+Dashboard shall categorize projects by workflow stage
+Dashboard shall provide statistics on content creation (volume, time, etc.)
+User shall be able to filter and search projects
+User shall be able to view detailed timeline for each project
+User shall be able to take actions based on project status
+Dashboard shall update in real-time
+Dashboard shall include notification center for important updates
+
+Acceptance Criteria:
+
+Dashboard must accurately reflect current status of all projects
+Update latency must be less than 5 seconds
+Dashboard must be responsive and performant with 100+ active projects
+All user actions must be accessible within 2 clicks from the dashboard
+
+5.7 Template Management
+Description: System for creating and managing content templates.
+Requirements:
+
+User shall be able to create custom content templates
+User shall be able to specify template variables
+User shall be able to categorize and organize templates
+System shall apply templates during content generation
+System shall allow template versioning
+User shall be able to clone and modify existing templates
+
+Acceptance Criteria:
+
+Templates must be easy to create and modify
+Templates must support all content types
+Template variables must be properly replaced during content generation
+System must support at least 50 custom templates
+
+5.8 Integration Management
+Description: Interface for managing connections to external services.
+Requirements:
+
+User shall be able to connect/disconnect Google Docs account
+User shall be able to connect/disconnect Notion workspace
+User shall be able to connect/disconnect Framer account if needed
+User shall be able to manage API keys and credentials
+System shall validate connections and provide status indicators
+System shall handle authentication securely
+System shall provide troubleshooting assistance for connection issues
+
+Acceptance Criteria:
+
+All integrations must use secure authentication methods
+Connection status must be clearly visible
+Integration setup should take less than 2 minutes per service
+System must securely store credentials
+
+5.9 User Management and Permissions
+Description: Controls for managing users and their access levels.
+Requirements:
+
+System shall support user roles (Admin, Editor, Viewer)
+System shall allow inviting team members by email
+System shall control access to features based on user role
+System shall log user actions for accountability
+System shall support single sign-on (SSO) for enterprise customers
+Admin shall be able to manage team members and their permissions
+
+Acceptance Criteria:
+
+Permission system must correctly restrict access based on user roles
+User management interface must be intuitive
+SSO integration must work with major providers (Google, Microsoft)
+Audit logs must capture all significant user actions
+
+6. Technical Requirements
+6.1 Platform and Compatibility
+
+Web application accessible via modern browsers (Chrome, Firefox, Safari, Edge)
+Responsive design supporting desktop and tablet devices
+Backend services hosted on scalable cloud infrastructure
+99.9% system uptime during business hours
+
+6.2 Performance Requirements
+
+Page load time under 2 seconds
+Content generation completed within 2 minutes
+Notion database updates within 1 minute
+Support for concurrent users and workflows
+Graceful degradation under heavy load
+
+6.3 Security Requirements
+
+SOC 2 compliance for data handling
+Encryption for data in transit and at rest
+Regular security audits and penetration testing
+Secure API key storage and management
+Role-based access controls
+GDPR and CCPA compliance for user data
+
+6.4 Integration Requirements
+
+RESTful API for programmatic access
+Webhook support for workflow automation
+Authentication via OAuth 2.0 for third-party services
+Support for popular AI models (Claude, GPT-4)
+Extensible integration framework for future services
+
+7. User Stories
+
+As a content manager, I want to request new content by filling out a form with specific requirements, so that I can get AI-generated content tailored to my needs.
+As a marketing specialist, I want to review AI-generated content in Google Docs, so that I can make necessary edits before publishing.
+As a content manager, I want to approve content with a single click, so that it can be automatically formatted and published to Notion.
+As a web developer, I want content to be structured according to my Notion database schema, so that it integrates seamlessly with my headless CMS setup.
+As a team leader, I want to see statistics on content creation volume and efficiency, so that I can optimize our workflows.
+As a content creator, I want to create and save templates for common content types, so that I can maintain consistency across multiple pieces.
+As an administrator, I want to manage team member access and permissions, so that I can control who can create, edit, and publish content.
+As a marketing specialist, I want to be notified when content is ready for my review, so that I can prioritize my workflow efficiently.
+
+8. Non-Functional Requirements
+
+Usability: The system shall have an intuitive interface requiring minimal training for new users.
+Reliability: The system shall have 99.9% uptime during business hours and proper error handling for all API integrations.
+Scalability: The system shall handle increasing user load without performance degradation and support growing content volume.
+Maintainability: The codebase shall follow best practices for documentation and structure to enable future enhancements.
+Accessibility: The interface shall comply with WCAG 2.1 AA standards to ensure access for users with disabilities.
+
+9. Implementation Timeline
+Phase 1: MVP (8 weeks)
+
+Basic content request form
+AI integration with Claude
+Google Docs review process
+Simple Notion publishing
+Core dashboard functionality
+
+Phase 2: Enhanced Features (6 weeks)
+
+Template management
+Advanced dashboard with analytics
+Improved formatting options
+Expanded Notion integration capabilities
+
+Phase 3: Enterprise Features (8 weeks)
+
+User management and permissions
+SSO integration
+Advanced security features
+API access for developers
+
+10. Key Risks and Mitigations
+RiskImpactLikelihoodMitigationAI model rate limitsHighMediumImplement queuing system and usage monitoringGoogle API changesMediumLowMaintain version compatibility and update monitoringNotion API limitationsMediumMediumCache data and implement retry mechanismsUser adoption challengesHighMediumProvide onboarding tutorials and responsive supportData security concernsHighLowImplement encryption and regular security audits
+11. Success Criteria
+ContentFlow.ai will be considered successful if it achieves:
+
+70% reduction in time spent on content creation compared to manual processes
+90% user satisfaction rating based on post-implementation surveys
+50% increase in content production volume for adopting teams
+Less than 10% of AI-generated content requiring significant edits
+Successful integration with existing workflows as measured by continuous usage
+
+12. Appendix
+A. Glossary of Terms
+
+AI Content Generation: Automated creation of content using artificial intelligence
+Headless CMS: Content management system that separates content from presentation
+Notion: Collaborative workspace tool used as a database for contents
+SEO: Search Engine Optimization
+
+B. References
+
+Claude AI Documentation
+Notion API Documentation
+Google Docs API Documentation
+
+
+Document Version: 1.0
+Last Updated: March 31, 2025
+Author: Contentented

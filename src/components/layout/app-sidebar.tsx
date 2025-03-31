@@ -46,6 +46,7 @@ import * as React from 'react';
 import { Icons } from '../icons';
 import { OrgSwitcher } from '../org-switcher';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import Image from 'next/image';
 
 export const company = {
   name: 'Acme Inc',
@@ -77,11 +78,24 @@ export default function AppSidebar() {
   return (
     <Sidebar collapsible='icon'>
       <SidebarHeader>
-        <OrgSwitcher
-          tenants={tenants}
-          defaultTenant={activeTenant}
-          onTenantSwitch={handleSwitchTenant}
-        />
+        <div className='flex flex-col gap-4 p-4 group-data-[collapsible=icon]:p-0'>
+          <div className='flex items-center justify-center group-data-[collapsible=icon]:hidden'>
+            <Image
+              src='/contented-logo.svg'
+              alt='Contented Logo'
+              width={145}
+              height={25}
+              className='dark:invert'
+            />
+          </div>
+          <div className='group-data-[collapsible=icon]:w-8'>
+            <OrgSwitcher
+              tenants={tenants}
+              defaultTenant={activeTenant}
+              onTenantSwitch={handleSwitchTenant}
+            />
+          </div>
+        </div>
       </SidebarHeader>
       <SidebarContent className='overflow-x-hidden'>
         <SidebarGroup>
